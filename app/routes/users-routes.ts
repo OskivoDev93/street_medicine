@@ -1,9 +1,14 @@
 const express = require("express");
-const routes = express.Router();
+const router = express.Router();
 import { Response, Request } from "express";
+const {
+  getUsers,
+  getOneUser,
+  createUser,
+  deleteOneUser,
+} = require("../controllers/user-controller/user-controller");
 
-routes.get("/", (req: Request, res: Response) => {
-  res.json({ message: "get all USERS" });
-});
+router.route("/").get(getUsers).post(createUser);
+router.route("/:id").get(getOneUser).delete(deleteOneUser);
 
-module.exports = routes;
+module.exports = router;
