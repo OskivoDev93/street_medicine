@@ -11,6 +11,7 @@ const app = express();
 app.use(express.json());
 
 app.use("/user", require("./routes/users-routes"));
+app.use("/item", require("./routes/item-routes"));
 
 app.use(errorHandler);
 app.listen(PORT, () => console.log(`listening to ${PORT}`));
